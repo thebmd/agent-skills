@@ -21,9 +21,9 @@ skills/<스킬이름>/scripts/     # 실행 코드 (선택)
 ### Claude Code
 ```
 /plugin marketplace add <github-id>/agent-skills
-/plugin install my-skills@jeongmok-skills
+/plugin install my-skills@jmha-skills
 ```
-갱신: `/plugin marketplace update jeongmok-skills` → `/plugin update my-skills@jeongmok-skills`
+갱신: `/plugin marketplace update jmha-skills` → `/plugin update my-skills@jmha-skills`
 
 ### Claude 데스크톱 / Cowork
 Customize → Plugins → Add → Add marketplace → `<github-id>/agent-skills` → Sync.
