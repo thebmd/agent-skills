@@ -1,0 +1,12 @@
+{
+  "name": "jeongmok-skills",
+  "owner": { "name": "Jeongmok" },
+  "description": "개인 에이전트 스킬 모음",
+  "plugins": [
+    {
+      "name": "my-skills",
+      "source": "./",
+      "description": "자주 쓰는 개인 스킬 묶음"
+    }
+  ]
+}
