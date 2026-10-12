@@ -45,3 +45,13 @@ Plugins → Skills 탭에서 스킬 폴더를 업로드. 같은 SKILL.md 그대�
 ```
 claude plugin validate .
 ```
+
+## 자동화 (DGX Spark)
+
+- **커밋하면** 바뀐 스킬의 claude.ai 업로드용 zip이 `~/shared/exchange/skills-upload/`에 생긴다
+  (`.git/hooks/post-commit` → `scripts/build-upload-zips.sh`). 무엇을 올릴지는 같은 폴더의 `업로드할것.txt`.
+- **다른 곳에서 푸시한 변경**은 cron이 매시 17분에 `git pull --ff-only`로 받아오고, `post-merge` 훅이 zip을 만든다.
+- **Hermes**는 `~/.hermes/config.yaml`의 `skills.external_dirs`로 이 저장소 `skills/`를 직접 읽으므로 따로 할 일 없음.
+- **Claude Code**는 claude.ai에 올린 스킬이 자동 동기화된다 (`~/.claude/skills/synced/`). 마켓플레이스를 같이 설치하면 중복되니 설치하지 않는다.
+- 훅은 git에 포함되지 않는다. 새 기기에서는 `scripts/build-upload-zips.sh`를 호출하는 post-commit/post-merge 훅을 다시 만든다.
+- 수동 실행: `scripts/build-upload-zips.sh --all` (전체) / `scripts/build-upload-zips.sh <이름>`
